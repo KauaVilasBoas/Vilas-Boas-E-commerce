@@ -1,4 +1,4 @@
-package br.com.kaua.vilas_boas_ecommerce.infra.product;
+package br.com.kaua.vilas_boas_ecommerce.domain.product;
 
 public enum ProductCategory {
     ELECTRONICS,
