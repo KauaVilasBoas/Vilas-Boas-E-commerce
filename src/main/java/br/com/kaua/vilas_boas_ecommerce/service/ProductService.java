@@ -32,8 +32,7 @@ public class ProductService {
 
 
     public Page<ProductListDTO> listProducts(Pageable pageable) {
-        var page = productRepository.findAll(pageable).map(ProductListDTO::new);
-        return page;
+        return productRepository.findAll(pageable).map(ProductListDTO::new);
     }
 
     public void deleteProduct(UUID id) {
