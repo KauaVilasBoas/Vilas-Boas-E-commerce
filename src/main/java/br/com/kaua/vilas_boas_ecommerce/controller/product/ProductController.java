@@ -38,8 +38,8 @@ public class ProductController {
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> delete(@RequestBody UUID id){
-        productService.deleteProduct(id);
+    public ResponseEntity<Void> delete(@RequestBody ProductDeleteDTO dto){
+        productService.deleteProduct(dto.id());
         return ResponseEntity.noContent().build();
     }
 

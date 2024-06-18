@@ -32,11 +32,12 @@ public class ProductService {
 
 
     public Page<ProductListDTO> listProducts(Pageable pageable) {
-        return productRepository.findAll(pageable).map(ProductListDTO::new);
+        return productRepository.findAllByDeletedAtIsNull(pageable).map(ProductListDTO::new);
     }
 
     public void deleteProduct(UUID id) {
         var product = productRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         product.delete();
+        productRepository.save(product);
     }
 }
